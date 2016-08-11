@@ -76,6 +76,33 @@ return true
 }
 ```
 
+After registering APNs, pass teh device token to the Bluemix push registration API.
+
+```
+func application (application: UIApplication, didRegisterForRemoteNotificationsWithDeviceToken deviceToken: NSData){
+        
+	let push =  BMSPushClient.sharedInstance
+	push.initializeWithAppGUID("")
+	
+	// MARK:    REGISTERING DEVICE
+	    
+	push.registerWithDeviceToken(deviceToken) { (response, statusCode, error) -> Void in
+	    
+		if error.isEmpty {
+		    
+			print( "Response during device registration : \(response)")
+			    
+			print( "status code during device registration : \(statusCode)")
+		}
+		else{
+			print( "Error during device registration \(error) ")
+			    
+			self.sendNotifToDisplayResponse( "Error during device registration \n  - status code: \(statusCode) \n Error :\(error) \n")
+		}
+	}
+}
+```
+
 ### Run the iOS app
 For push notifications to work successfully, you must run the helloPush sample on a physical iOS device. You will also need a valid APNs enabled bundle id, provisioning profile, and development certificate.
 
