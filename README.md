@@ -82,7 +82,7 @@ After registering APNs, pass teh device token to the Bluemix push registration A
 func application (application: UIApplication, didRegisterForRemoteNotificationsWithDeviceToken deviceToken: NSData){
         
 	let push =  BMSPushClient.sharedInstance
-	push.initializeWithAppGUID("")
+	push.initializeWithAppGUID("appGUID")
 	
 	// MARK:    REGISTERING DEVICE
 	    
