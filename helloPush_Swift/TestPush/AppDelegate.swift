@@ -109,10 +109,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application (application: UIApplication, didRegisterForRemoteNotificationsWithDeviceToken deviceToken: NSData){
         
         let push =  BMSPushClient.sharedInstance
-        
+        push.initializeWithAppGUID("")
+
         // MARK:    REGISTERING DEVICE
         
-        push.registerDeviceToken(deviceToken) { (response, statusCode, error) -> Void in
+        push.registerWithDeviceToken(deviceToken) { (response, statusCode, error) -> Void in
             
             if error.isEmpty {
                 
@@ -211,11 +212,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         userPayload = additionalPayload!.description
         
         self.showAlert("Recieved Push notifications", message: payLoad, payload: userPayload)
-        
-        
-        let push =  BMSPushClient.sharedInstance
-        
-        push.application(UIApplication.sharedApplication(), didReceiveRemoteNotification: userInfo)
         
     }
     
