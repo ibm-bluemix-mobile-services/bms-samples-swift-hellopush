@@ -1,6 +1,12 @@
 # iOS helloPush Sample Application for Bluemix Mobile Services
 ---
-This iOS helloPush sample contains an Swift project that you can use to learn more about the IBM Push Notification Service. 
+This iOS helloPush sample contains an Swift project that you can use to learn more about the IBM Push Notification Service.
+
+### Requirements
+
+* iOS 8.0+
+* Xcode 7.3, 8.0 beta 4, 8.0 beta 5
+* Swift 2.2 - 3.0
 
 Use the following steps to configure the helloPush sample for Swift:
 
@@ -20,9 +26,12 @@ Before you start, make sure you have the following:
 ### Download the helloPush sample
 Clone the sample from Github with the following command:
 
-```git clone https://github.com/ibm-bluemix-mobile-services/bms-samples-swift-hellopush.git```
+```
+   git clone https://github.com/ibm-bluemix-mobile-services/bms-samples-swift-hellopush.git
+```
 
 ### Configure the mobile backend for your helloPush application
+
 Before you can run the helloPush application, you must set up an app on Bluemix.  The following procedure shows you how to create a MobileFirst Services Starter application. A Node.js runtime environment is created so that you can provide server-side functions, such as resource URIs and static files. The Cloudant®NoSQL DB, IBM Push Notifications, and Mobile Client Access services are then added to the app.
 
 Create a mobile backend in the  Bluemix dashboard:
@@ -39,67 +48,78 @@ Configure Push Notification service:
 
 ### Configure the front end in the helloPush sample
 
-Navigate to the `helloPush_swift` folder and do the folllowing,
+Navigate to the `helloPush_swift` folder for `Swift2.3 or Older Version of Swift` and to `helloPush_Swift3` folder for `Swift3` and do the following,
 
 #### Cocoa Pods:
 
-1. If the CocoapPods client is not installed, install it using the following command: `sudo gem install cocoapods`
+1. If the CocoapPods client is not installed, install it using the following command: `sudo gem install Cocoapods`
 2. If the CocoaPods repository is not configured, configure it using the following command: `pod setup`
 3. Run the `pod install` command to download and install the required dependencies.
-4. Open the Xcode workspace: `open TestPush.xcworkspace`. From now on, open the xcworkspace file since it contains all the dependencies and configuration.
+4. Open the Xcode workspace: `open TestPush.xcworkspace` (swift 2.3 ) or `helloPush_Swift3.xcworkspace` (Swift3). From now on, open the xcworkspace file since it contains all the dependencies and configuration.
 5. Open the `AppDelegate.swift` and add the corresponding **APPROUTE** ,
 **APPGUID** and **APPREGION** in the application `didFinishLaunchingWithOptions` method:
 
 
 #### Carthage :
 
-To install BMSPush using Carthage, add it to your Cartfile: 
+To install BMSPush using Carthage, add it to your Cartfile:
 
-```ogdl
-github "ibm-bluemix-mobile-services/bms-clientsdk-swift-push"
 ```
+   github "ibm-bluemix-mobile-services/bms-clientsdk-swift-push"
+```
+>**Note**: Carthage currently is not supported for BMSPush in Xcode 8 beta. Please use Cocoapods instead.
 
-Then run the `carthage update` command. Once the build is finished, drag `BMSPush.framework`, `BMSCore.framework` and `BMSAnalyticsAPI.framework` into your Xcode project. 
+Then run the `carthage update` command. Once the build is finished, drag `BMSPush.framework`, `BMSCore.framework` and `BMSAnalyticsAPI.framework` into your Xcode project.
 
 #### Setup initialization
 ```
-func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
-// Override point for customization after application launch.
-
 let myBMSClient = BMSClient.sharedInstance
 
-myBMSClient.initializeWithBluemixAppRoute("APPROUTE", bluemixAppGUID: "APPGUID", bluemixRegion: "APPREGION")
+//Swift3
 
-myBMSClient.defaultRequestTimeout = 10.0 // seconds
+myBMSClient.initializeWithBluemixAppRoute(bluemixAppRoute: "https://example.mybluemix.net", bluemixAppGUID: "1234", bluemixRegion: "Location where your app Hosted")
 
-return true
-}
+//Swift 2.3 or Older
+
+myBMSClient.initializeWithBluemixAppRoute("bluemixAppRoute", bluemixAppGUID: "APPGUID", bluemixRegion:"Location where your app Hosted")
+
+myBMSClient.defaultRequestTimeout = 10.0 // Timput in seconds
+
 ```
 
-After registering APNs, pass teh device token to the Bluemix push registration API.
+After registering APNs, pass the device token to the Bluemix push registration API.
 
 ```
-func application (application: UIApplication, didRegisterForRemoteNotificationsWithDeviceToken deviceToken: NSData){
-        
-	let push =  BMSPushClient.sharedInstance
-	push.initializeWithAppGUID("appGUID")
-	
-	// MARK:    REGISTERING DEVICE
-	    
-	push.registerWithDeviceToken(deviceToken) { (response, statusCode, error) -> Void in
-	    
-		if error.isEmpty {
-		    
-			print( "Response during device registration : \(response)")
-			    
-			print( "status code during device registration : \(statusCode)")
-		}
-		else{
-			print( "Error during device registration \(error) ")
-			    
-			self.sendNotifToDisplayResponse( "Error during device registration \n  - status code: \(statusCode) \n Error :\(error) \n")
-		}
-	}
+func application (_ application: UIApplication, didRegisterForRemoteNotificationsWithDeviceToken deviceToken: Data){
+
+   let push =  BMSPushClient.sharedInstance
+   push.initializeWithAppGUID(appGUID: "your pushAppGUID")
+   push.registerWithDeviceToken(deviceToken: deviceToken) { (response, statusCode, error) -> Void in
+    if error.isEmpty {
+      print( "Response during device registration : \(response)")
+      print( "status code during device registration : \(statusCode)")
+    } else{
+      print( "Error during device registration \(error) ")
+      Print( "Error during device registration \n  - status code: \(statusCode) \n Error :\(error) \n")
+    }  
+ }
+
+
+ //Swift2.3 and Older
+
+ func application (application: UIApplication, didRegisterForRemoteNotificationsWithDeviceToken deviceToken: NSData){
+
+   let push =  BMSPushClient.sharedInstance
+   push.initializeWithAppGUID("pushAppGUID")
+   push.registerWithDeviceToken(deviceToken) { (response, statusCode, error) -> Void in
+        if error.isEmpty {
+            print( "Response during device registration : \(response)")
+            print( "status code during device registration : \(statusCode)")
+        }else{
+            print( "Error during device registration \(error) ")
+            Print( "Error during device registration \n  - status code: \(statusCode) \n Error :\(error) \n")
+        }
+    }
 }
 ```
 
@@ -108,7 +128,7 @@ For push notifications to work successfully, you must run the helloPush sample o
 
 When you run the application, you will see a single view application with a "Register for Push" button. When you click this button the application will attempt to register the device and application to the Push Notification Service. The app uses an alert to display the registration status (successful or failed).
 
-When a push notification is received and the application is in the foreground, an alert is displayed showing the notification's content. The application uses the **ApplicationRoute** and **ApplicationID** specified in the AppDelegate to connect to the IBM Push Notification Service on Bluemix. The registration status and other information is displayed  in the Xcode Console 
+When a push notification is received and the application is in the foreground, an alert is displayed showing the notification's content. The application uses the **ApplicationRoute** and **ApplicationID** specified in the AppDelegate to connect to the IBM Push Notification Service on Bluemix. The registration status and other information is displayed  in the Xcode Console
 
 
 >**Note:** This application runs on the latest version of XCode (7.0). The application has been updated to set Enable Bitcode to No in the build-settings as a workaround for the these settings introduced in iOS 9. For more info please see the following blog entry:
