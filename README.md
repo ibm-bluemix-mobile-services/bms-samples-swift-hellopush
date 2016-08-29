@@ -12,18 +12,22 @@ Before you start, make sure you have the following:
 
 - A [Bluemix](http://bluemix.net) account.
 - APNs enabled push certificate (.p12 file) and the certificate password . For information about how to obtain a p.12 certificate, see the [configuring credentials for a notification provider](https://www.ng.bluemix.net/docs/services/mobilepush/index.html#push_provider) section in the Push documentation.
-- Create a Bluemix Push Notifications Service and [configure](https://console.ng.bluemix.net/docs/services/mobilepush/t_push_provider_ios.html) it .
+
+### Create an instance of Bluemix Push Notifications Service
+- Create an instance of  Bluemix Push Notifications Service and [configure](https://console.ng.bluemix.net/docs/services/mobilepush/t_push_provider_ios.html) it .
+
+### Download and setup the sample
 - Clone the sample from Github with the following command:
 
     ```
       git clone https://github.com/ibm-bluemix-mobile-services/bms-samples-swift-hellopush.git
     ```
 
-### Setup cocoapods or carthage
+#### Setup cocoapods or carthage
 
 Navigate to the `helloPush_swift` folder for `Swift2.3 or Older Version of Swift` and to `helloPush_Swift3` folder for `Swift3` and do the following,
 
-#### Cocoa Pods:
+##### Cocoa Pods:
 
 1. If the CocoapPods client is not installed, install it using the following command: `sudo gem install Cocoapods`
 2. If the CocoaPods repository is not configured, configure it using the following command: `pod setup`
@@ -33,7 +37,7 @@ Navigate to the `helloPush_swift` folder for `Swift2.3 or Older Version of Swift
 **APPGUID** and **APPREGION** in the application `didFinishLaunchingWithOptions` method:
 
 
-#### Carthage :
+##### Carthage :
 
 To install BMSPush using Carthage, add it to your Cartfile:
 
@@ -102,7 +106,7 @@ For push notifications to work successfully, you must run the helloPush sample o
 
 When you run the application, you will see a single view application with a "Register for Push" Switch. When you click this switch the application will attempt to register the device and application to the Push Notification Service. The app uses an text view to display the registration status (successful or failed).
 
-When a push notification is received and the application is in the foreground, an alert is displayed showing the notification's content.
+Now, switch over to the Bluemix Push Notifications service and open the service dashboard.  Navigate to 'Send Notifications' and send a notification.  You could either send a broadcast notification or a notification targeted to iOS platform so that a notification is sent to the helloPush Swift application.  When a push notification is received and the application is in the foreground, an alert is displayed showing the notification's content.
 
 >**Note:** This application runs on the latest version of XCode (7.0). The application has been updated to set Enable Bitcode to No in the build-settings as a workaround for the these settings introduced in iOS 9. For more info please see the following blog entry:
 
