@@ -52,7 +52,7 @@ class ViewController: UIViewController {
         var responseLabelText = self.textViewResult.text
         responseLabelText = "\(responseLabelText) \n Response Text: \(responseText) \n\n"
         DispatchQueue.main.async(execute: {
-            self.textField.text = responseLabelText
+            self.textViewResult.text = responseLabelText
         })
     }
 
