@@ -55,11 +55,11 @@ let myBMSClient = BMSClient.sharedInstance
 
 //Swift3
 
-myBMSClient.initializeWithBluemixAppRoute(bluemixAppRoute: "https://example.mybluemix.net", bluemixAppGUID: "1234", bluemixRegion: "Location where your app Hosted")
+myBMSClient.initialize(bluemixRegion: "Location where your app Hosted")
 
 //Swift 2.3 or Older
 
-myBMSClient.initializeWithBluemixAppRoute("https://example.mybluemix.net", bluemixAppGUID: "1234", bluemixRegion:"Location where your app Hosted")
+myBMSClient.initialize(bluemixRegion: "Location where your app Hosted")
 
 myBMSClient.defaultRequestTimeout = 10.0 // Timeout in seconds
 

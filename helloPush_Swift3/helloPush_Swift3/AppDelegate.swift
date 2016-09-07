@@ -29,7 +29,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         let myBMSClient = BMSClient.sharedInstance
         
-        myBMSClient.initializeWithBluemixAppRoute(bluemixAppRoute: "", bluemixAppGUID: "", bluemixRegion: "")
+         myBMSClient.initialize(bluemixRegion: "APP REGION")
         // BMSPushClient.overrideServerHost = "http://9.109.242.204:1337"
         
         myBMSClient.defaultRequestTimeout = 10.0 // seconds
