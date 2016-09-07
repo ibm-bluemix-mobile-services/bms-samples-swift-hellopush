@@ -271,7 +271,7 @@
 				DEVELOPMENT_TEAM = TN6YQNGLXP;
 				INFOPLIST_FILE = helloPush_Swift3/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.BluemixIndia.Push;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.ibm.hellopush-swift3";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "49e07a4a-33cc-497a-8465-db23a34a8eca";
 				PROVISIONING_PROFILE_SPECIFIER = "Ananth Push development provisioning";
@@ -287,7 +287,7 @@
 				DEVELOPMENT_TEAM = TN6YQNGLXP;
 				INFOPLIST_FILE = helloPush_Swift3/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.BluemixIndia.Push;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.ibm.hellopush-swift3";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "49e07a4a-33cc-497a-8465-db23a34a8eca";
 				PROVISIONING_PROFILE_SPECIFIER = "Ananth Push development provisioning";
@@ -314,6 +314,7 @@
 				145E88881D73F1DA00C43FA8 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

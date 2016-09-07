@@ -65,7 +65,7 @@ myBMSClient.defaultRequestTimeout = 10.0 // Timeout in seconds
 
 ```
 
-After registering with APNs, pass the device token to the Bluemix push registration API.
+After registering with APNs, pass the device token to the Bluemix push registration API. Follow docs in [BMSPush SDK](https://github.com/ibm-bluemix-mobile-services/bms-clientsdk-swift-push)
 
 ```
 func application (_ application: UIApplication, didRegisterForRemoteNotificationsWithDeviceToken deviceToken: Data){
