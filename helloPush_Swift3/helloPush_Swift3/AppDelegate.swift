@@ -14,7 +14,6 @@
 import UIKit
 import BMSCore
 import BMSPush
-
 import UserNotifications
 import UserNotificationsUI
 
@@ -24,16 +23,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     var window: UIWindow?
 
 
-    func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
+    func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey : Any]? = nil) -> Bool {
         // Override point for customization after application launch.
-        
         let myBMSClient = BMSClient.sharedInstance
-        
          myBMSClient.initialize(bluemixRegion: "APP REGION")
-        // BMSPushClient.overrideServerHost = "http://9.109.242.204:1337"
-        
-        myBMSClient.defaultRequestTimeout = 10.0 // seconds
-        
         return true
     }
 
@@ -125,7 +118,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         var devId = String()
         let authManager  = BMSClient.sharedInstance.authorizationManager
-        devId = authManager.deviceIdentity.id!
+        devId = authManager.deviceIdentity.ID!
         
         var token:String = deviceToken.description
         token = token.replacingOccurrences(of: "<", with: "")
@@ -136,10 +129,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         print(devId);
         
         let push =  BMSPushClient.sharedInstance
-        push.initializeWithAppGUID(appGUID: "")
-        //push.initializeWithAppGUID(appGUID: "", clientSecret:"")
+        push.initializeWithAppGUID(appGUID: "", clientSecret: "")
         //push.registerWithDeviceToken(deviceToken: deviceToken, WithUserId: "") { (response, statusCode, error) -> Void in
-        
         push.registerWithDeviceToken(deviceToken: deviceToken) { (response, statusCode, error) -> Void in
             
             if error.isEmpty {
@@ -231,7 +222,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
     }
     
-    func application(_ application: UIApplication, didReceiveRemoteNotification userInfo: [NSObject : AnyObject], fetchCompletionHandler completionHandler: (UIBackgroundFetchResult) -> Void) {
+    func application(_ application: UIApplication, didReceiveRemoteNotification userInfo: [AnyHashable : Any], fetchCompletionHandler completionHandler: @escaping (UIBackgroundFetchResult) -> Void) {
         
         let payLoad = ((((userInfo as NSDictionary).value(forKey: "aps") as! NSDictionary).value(forKey: "alert") as! NSDictionary).value(forKey: "body") as! NSString)
         
@@ -242,7 +233,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func sendNotifToDisplayResponse (responseValue:String){
         
         responseText = responseValue
-        NotificationCenter.default.post(name: "action" as NSNotification.Name, object: self)
+        NotificationCenter.default.post(name: NSNotification.Name(rawValue: "action"), object: self);
     }
     
     

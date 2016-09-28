@@ -24,11 +24,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         // Override point for customization after application launch.
         let myBMSClient = BMSClient.sharedInstance
-        
         myBMSClient.initialize(bluemixRegion: "APP REGION")
-        
-        myBMSClient.defaultRequestTimeout = 10.0 // seconds
-        
         
         return true
     }
@@ -110,7 +106,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application (application: UIApplication, didRegisterForRemoteNotificationsWithDeviceToken deviceToken: NSData){
         
         let push =  BMSPushClient.sharedInstance
-        push.initializeWithAppGUID("")
+        push.initializeWithAppGUID(appGUID: "", clientSecret: "")
 
         // MARK:    REGISTERING DEVICE
         
