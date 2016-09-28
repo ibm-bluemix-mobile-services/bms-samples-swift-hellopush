@@ -33,8 +33,7 @@ Navigate to the `helloPush_swift` folder for `Swift2.3 or Older Version of Swift
 2. If the CocoaPods repository is not configured, configure it using the following command: `pod setup`
 3. Run the `pod install` command to download and install the required dependencies.
 4. Open the Xcode workspace: `open TestPush.xcworkspace` (swift 2.3 ) or `helloPush_Swift3.xcworkspace` (Swift3). From now on, open the xcworkspace file since it contains all the dependencies and configuration.
-5. Open the `AppDelegate.swift` and add the corresponding **APPROUTE** ,
-**APPGUID** and **APPREGION** in the application `didFinishLaunchingWithOptions` method:
+5. Open the `AppDelegate.swift` and add the corresponding **APPREGION** in the application `didFinishLaunchingWithOptions` method:
 
 
 ##### Carthage :
@@ -61,7 +60,6 @@ myBMSClient.initialize(bluemixRegion: "Location where your app Hosted")
 
 myBMSClient.initialize(bluemixRegion: "Location where your app Hosted")
 
-myBMSClient.defaultRequestTimeout = 10.0 // Timeout in seconds
 
 ```
 
@@ -71,7 +69,7 @@ After registering with APNs, pass the device token to the Bluemix push registrat
 func application (_ application: UIApplication, didRegisterForRemoteNotificationsWithDeviceToken deviceToken: Data){
 
    let push =  BMSPushClient.sharedInstance
-   push.initializeWithAppGUID(appGUID: "your pushAppGUID")
+   push.initializeWithAppGUID(appGUID: "your Push App GUID", clientSecret: "your Push App client secret")
    push.registerWithDeviceToken(deviceToken: deviceToken) { (response, statusCode, error) -> Void in
     if error.isEmpty {
       print( "Response during device registration : \(response)")
@@ -88,7 +86,7 @@ func application (_ application: UIApplication, didRegisterForRemoteNotification
  func application (application: UIApplication, didRegisterForRemoteNotificationsWithDeviceToken deviceToken: NSData){
 
    let push =  BMSPushClient.sharedInstance
-   push.initializeWithAppGUID("pushAppGUID")
+   push.initializeWithAppGUID(appGUID: "your Push App GUID", clientSecret: "your Push App client secret")
    push.registerWithDeviceToken(deviceToken) { (response, statusCode, error) -> Void in
         if error.isEmpty {
             print( "Response during device registration : \(response)")
