@@ -113,12 +113,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
     
     func application (_ application: UIApplication, didRegisterForRemoteNotificationsWithDeviceToken deviceToken: Data){
-        
-        var token:String = deviceToken.description
-        token = token.replacingOccurrences(of: "<", with: "")
-        token = token.replacingOccurrences(of: ">", with: "")
-        token = token.replacingOccurrences(of: " ", with: "").trimmingCharacters(in: NSCharacterSet.symbols)
-        
+               
         let push =  BMSPushClient.sharedInstance
         push.initializeWithAppGUID(appGUID: "", clientSecret: "")
         push.registerWithDeviceToken(deviceToken: deviceToken) { (response, statusCode, error) -> Void in
@@ -204,7 +199,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     //Called if unable to register for APNS.
     func application(_ application: UIApplication, didFailToRegisterForRemoteNotificationsWithError error: Error) {
         
-        let message:NSString = "Error registering for push notifications: \(error.localizedDescription)"
+        let message:String = "Error registering for push notifications: \(error.localizedDescription)"
         
         self.showAlert(title: "Registering for notifications", message: message)
         
@@ -214,7 +209,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     func application(_ application: UIApplication, didReceiveRemoteNotification userInfo: [AnyHashable : Any], fetchCompletionHandler completionHandler: @escaping (UIBackgroundFetchResult) -> Void) {
         
-        let payLoad = ((((userInfo as NSDictionary).value(forKey: "aps") as! NSDictionary).value(forKey: "alert") as! NSDictionary).value(forKey: "body") as! NSString)
+        let payLoad = ((((userInfo as NSDictionary).value(forKey: "aps") as! NSDictionary).value(forKey: "alert") as! NSDictionary).value(forKey: "body") as! String)
         
         self.showAlert(title: "Recieved Push notifications", message: payLoad)
         
@@ -227,7 +222,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
     
     
-    func showAlert (title:NSString , message:NSString){
+    func showAlert (title:String , message:String){
         
         // create the alert
         let alert = UIAlertController.init(title: title as String, message: message as String, preferredStyle: UIAlertControllerStyle.alert)
