@@ -114,23 +114,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     func application (_ application: UIApplication, didRegisterForRemoteNotificationsWithDeviceToken deviceToken: Data){
         
-        
-        
-        var devId = String()
-        let authManager  = BMSClient.sharedInstance.authorizationManager
-        devId = authManager.deviceIdentity.ID!
-        
         var token:String = deviceToken.description
         token = token.replacingOccurrences(of: "<", with: "")
         token = token.replacingOccurrences(of: ">", with: "")
         token = token.replacingOccurrences(of: " ", with: "").trimmingCharacters(in: NSCharacterSet.symbols)
         
-        print(token);
-        print(devId);
-        
         let push =  BMSPushClient.sharedInstance
         push.initializeWithAppGUID(appGUID: "", clientSecret: "")
-        //push.registerWithDeviceToken(deviceToken: deviceToken, WithUserId: "") { (response, statusCode, error) -> Void in
         push.registerWithDeviceToken(deviceToken: deviceToken) { (response, statusCode, error) -> Void in
             
             if error.isEmpty {
