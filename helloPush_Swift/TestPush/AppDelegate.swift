@@ -23,19 +23,16 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         // Override point for customization after application launch.
-        let myBMSClient = BMSClient.sharedInstance
-        myBMSClient.initialize(bluemixRegion: "APP REGION")
+        
         
         return true
     }
     
     func registerForPush () {
-        
-        let settings = UIUserNotificationSettings(forTypes: [.Alert, .Badge, .Sound], categories: nil)
-        UIApplication.sharedApplication().registerUserNotificationSettings(settings)
-        UIApplication.sharedApplication().registerForRemoteNotifications()
-
-        
+        let myBMSClient = BMSClient.sharedInstance
+        myBMSClient.initialize(bluemixRegion: "APP REGION")
+        let push =  BMSPushClient.sharedInstance
+        push.initializeWithAppGUID(appGUID: "", clientSecret: "")        
     }
     func unRegisterPush () {
         
@@ -106,7 +103,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application (application: UIApplication, didRegisterForRemoteNotificationsWithDeviceToken deviceToken: NSData){
         
         let push =  BMSPushClient.sharedInstance
-        push.initializeWithAppGUID(appGUID: "", clientSecret: "")
 
         // MARK:    REGISTERING DEVICE
         

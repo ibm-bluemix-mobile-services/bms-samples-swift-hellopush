@@ -25,25 +25,17 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey : Any]? = nil) -> Bool {
         // Override point for customization after application launch.
-        let myBMSClient = BMSClient.sharedInstance
-         myBMSClient.initialize(bluemixRegion: "APP REGION")
+        
         return true
     }
 
     func registerForPush () {
         
-        if #available(iOS 10.0, *) {
-            UNUserNotificationCenter.current().requestAuthorization(options: [.alert, .sound, .badge])
-            { (granted, error) in
-                
-                UIApplication.shared.registerForRemoteNotifications()
-            }
-        } else {
-            // Fallback on earlier versions
-            let settings = UIUserNotificationSettings(types: [.alert, .badge, .sound], categories: nil)
-            UIApplication.shared.registerUserNotificationSettings(settings)
-            UIApplication.shared.registerForRemoteNotifications()
-        }        
+        let myBMSClient = BMSClient.sharedInstance
+        myBMSClient.initialize(bluemixRegion: "APP REGION")
+        let push =  BMSPushClient.sharedInstance
+        push.initializeWithAppGUID(appGUID: "", clientSecret: "")
+
     }
     
     func unRegisterPush () {
@@ -115,7 +107,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application (_ application: UIApplication, didRegisterForRemoteNotificationsWithDeviceToken deviceToken: Data){
                
         let push =  BMSPushClient.sharedInstance
-        push.initializeWithAppGUID(appGUID: "", clientSecret: "")
         push.registerWithDeviceToken(deviceToken: deviceToken) { (response, statusCode, error) -> Void in
             
             if error.isEmpty {
