@@ -5,8 +5,8 @@ This iOS helloPush sample contains an Swift project that you can use to learn mo
 ### Requirements
 
 * iOS 8.0+
-* Xcode 7.3, 8.0 beta 4, 8.0 beta 5
-* Swift 2.2 - 3.0
+* Xcode 7.3, 8.+
+* Swift 2.2 - 3.+
 
 Before you start, make sure you have the following:
 
@@ -109,6 +109,13 @@ Now, switch over to the Bluemix Push Notifications service and open the service 
 >**Note:** This application runs on the latest version of XCode (7.0). The application has been updated to set Enable Bitcode to No in the build-settings as a workaround for the these settings introduced in iOS 9. For more info please see the following blog entry:
 
 [Connect Your iOS 9 App to Bluemix](https://developer.ibm.com/bluemix/2015/09/16/connect-your-ios-9-app-to-bluemix/)
+
+
+### Samples & videos
+
+* Please visit for samples - [Github Sample](https://github.com/ibm-bluemix-mobile-services/bms-samples-swift-hellopush)
+
+* Video Tutorials Available here - [Bluemix Push Notifications](https://www.youtube.com/channel/UCRr2Wou-z91fD6QOYtZiHGA)
 
 =======================
 Copyright 2016 IBM Corp.
