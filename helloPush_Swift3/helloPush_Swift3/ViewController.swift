@@ -37,8 +37,19 @@ class ViewController: UIViewController {
         
         if sender.isOn{
             
-            textViewResult.text = "started Registration \n"
-            appDelegate.registerForPush()
+            let alert = UIAlertController(title: "Let Us Send You Push Notifications?", message: "We'll only notify you of content that's interesting and relevant to YOU.",preferredStyle: .alert)
+
+            let submitAction = UIAlertAction(title: "Yes, Please", style: .default, handler: { (action) -> Void in
+                self.textViewResult.text = "started Registration \n"
+                self.appDelegate.registerForPush()
+            })
+            let cancel = UIAlertAction(title: "No, Thanks", style: .destructive, handler: { (action) -> Void in
+                self.textViewResult.text = "User denied permission \n"
+                sender.setOn(false, animated: true)
+            })
+            alert.addAction(cancel)
+            alert.addAction(submitAction)
+            present(alert, animated: true, completion: nil)
         }
         else{
             textViewResult.text = "";
