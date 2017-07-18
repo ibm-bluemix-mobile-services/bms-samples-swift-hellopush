@@ -12,6 +12,7 @@
 		145E887D1D73F1DA00C43FA8 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 145E887B1D73F1DA00C43FA8 /* Main.storyboard */; };
 		145E887F1D73F1DA00C43FA8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 145E887E1D73F1DA00C43FA8 /* Assets.xcassets */; };
 		145E88821D73F1DA00C43FA8 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 145E88801D73F1DA00C43FA8 /* LaunchScreen.storyboard */; };
+		F93AA626AC188DC653921646 /* Pods_helloPush_Swift3.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 66F079B8864E2B11A6483EDE /* Pods_helloPush_Swift3.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -22,6 +23,10 @@
 		145E887E1D73F1DA00C43FA8 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		145E88811D73F1DA00C43FA8 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		145E88831D73F1DA00C43FA8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		188B6C191F1CC3D100A26F28 /* helloPush_Swift3.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = helloPush_Swift3.entitlements; sourceTree = "<group>"; };
+		66F079B8864E2B11A6483EDE /* Pods_helloPush_Swift3.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_helloPush_Swift3.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		84B184571EAA4706BC6DF44F /* Pods-helloPush_Swift3.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-helloPush_Swift3.debug.xcconfig"; path = "Pods/Target Support Files/Pods-helloPush_Swift3/Pods-helloPush_Swift3.debug.xcconfig"; sourceTree = "<group>"; };
+		D5396ACC965A40AB355B5ECB /* Pods-helloPush_Swift3.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-helloPush_Swift3.release.xcconfig"; path = "Pods/Target Support Files/Pods-helloPush_Swift3/Pods-helloPush_Swift3.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -29,6 +34,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F93AA626AC188DC653921646 /* Pods_helloPush_Swift3.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -40,6 +46,8 @@
 			children = (
 				145E88761D73F1DA00C43FA8 /* helloPush_Swift3 */,
 				145E88751D73F1DA00C43FA8 /* Products */,
+				E724E93C15152FA40A6C3799 /* Pods */,
+				A58489835894B3328E2633E4 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -54,6 +62,7 @@
 		145E88761D73F1DA00C43FA8 /* helloPush_Swift3 */ = {
 			isa = PBXGroup;
 			children = (
+				188B6C191F1CC3D100A26F28 /* helloPush_Swift3.entitlements */,
 				145E88771D73F1DA00C43FA8 /* AppDelegate.swift */,
 				145E88791D73F1DA00C43FA8 /* ViewController.swift */,
 				145E887B1D73F1DA00C43FA8 /* Main.storyboard */,
@@ -64,6 +73,23 @@
 			path = helloPush_Swift3;
 			sourceTree = "<group>";
 		};
+		A58489835894B3328E2633E4 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				66F079B8864E2B11A6483EDE /* Pods_helloPush_Swift3.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		E724E93C15152FA40A6C3799 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				84B184571EAA4706BC6DF44F /* Pods-helloPush_Swift3.debug.xcconfig */,
+				D5396ACC965A40AB355B5ECB /* Pods-helloPush_Swift3.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -71,9 +97,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 145E88861D73F1DA00C43FA8 /* Build configuration list for PBXNativeTarget "helloPush_Swift3" */;
 			buildPhases = (
+				7638D05FB09D11649EA2ED00 /* [CP] Check Pods Manifest.lock */,
 				145E88701D73F1DA00C43FA8 /* Sources */,
 				145E88711D73F1DA00C43FA8 /* Frameworks */,
 				145E88721D73F1DA00C43FA8 /* Resources */,
+				F3D1BF89B3C8AB8ED2226559 /* [CP] Embed Pods Frameworks */,
+				C2F60AD246024EFC684EC8B9 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -98,6 +127,14 @@
 						CreatedOnToolsVersion = 8.0;
 						DevelopmentTeam = TN6YQNGLXP;
 						ProvisioningStyle = Manual;
+						SystemCapabilities = {
+							com.apple.BackgroundModes = {
+								enabled = 1;
+							};
+							com.apple.Push = {
+								enabled = 1;
+							};
+						};
 					};
 				};
 			};
@@ -131,6 +168,54 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		7638D05FB09D11649EA2ED00 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		C2F60AD246024EFC684EC8B9 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-helloPush_Swift3/Pods-helloPush_Swift3-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		F3D1BF89B3C8AB8ED2226559 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-helloPush_Swift3/Pods-helloPush_Swift3-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		145E88701D73F1DA00C43FA8 /* Sources */ = {
@@ -209,7 +294,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
-				PROVISIONING_PROFILE = "49e07a4a-33cc-497a-8465-db23a34a8eca";
+				PROVISIONING_PROFILE = "039dd6fb-1a99-4b26-b961-ea4b62e4fb4e";
 				SDKROOT = iphoneos;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
@@ -255,7 +340,7 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
-				PROVISIONING_PROFILE = "49e07a4a-33cc-497a-8465-db23a34a8eca";
+				PROVISIONING_PROFILE = "039dd6fb-1a99-4b26-b961-ea4b62e4fb4e";
 				SDKROOT = iphoneos;
 				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -265,32 +350,36 @@
 		};
 		145E88871D73F1DA00C43FA8 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 84B184571EAA4706BC6DF44F /* Pods-helloPush_Swift3.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = helloPush_Swift3/helloPush_Swift3.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer: Anantha Krishnan K G (6ADZ6AJGXG)";
 				DEVELOPMENT_TEAM = TN6YQNGLXP;
 				INFOPLIST_FILE = helloPush_Swift3/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "com.ibm.hellopush-swift3";
+				PRODUCT_BUNDLE_IDENTIFIER = com.bmdpush.push;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "49e07a4a-33cc-497a-8465-db23a34a8eca";
-				PROVISIONING_PROFILE_SPECIFIER = "Ananth Push development provisioning";
+				PROVISIONING_PROFILE = "039dd6fb-1a99-4b26-b961-ea4b62e4fb4e";
+				PROVISIONING_PROFILE_SPECIFIER = "Ananth Push Development cert";
 				SWIFT_VERSION = 3.0;
 			};
 			name = Debug;
 		};
 		145E88881D73F1DA00C43FA8 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = D5396ACC965A40AB355B5ECB /* Pods-helloPush_Swift3.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = helloPush_Swift3/helloPush_Swift3.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer: Anantha Krishnan K G (6ADZ6AJGXG)";
 				DEVELOPMENT_TEAM = TN6YQNGLXP;
 				INFOPLIST_FILE = helloPush_Swift3/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "com.ibm.hellopush-swift3";
+				PRODUCT_BUNDLE_IDENTIFIER = com.bmdpush.push;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "49e07a4a-33cc-497a-8465-db23a34a8eca";
-				PROVISIONING_PROFILE_SPECIFIER = "Ananth Push development provisioning";
+				PROVISIONING_PROFILE = "039dd6fb-1a99-4b26-b961-ea4b62e4fb4e";
+				PROVISIONING_PROFILE_SPECIFIER = "Ananth Push Development cert";
 				SWIFT_VERSION = 3.0;
 			};
 			name = Release;

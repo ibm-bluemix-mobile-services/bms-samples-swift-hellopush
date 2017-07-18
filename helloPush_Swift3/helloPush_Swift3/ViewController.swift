@@ -13,12 +13,16 @@
 
 import UIKit
 import UserNotifications
+import BMSCore
+import BMSPush
+
 public var responseText: String?
 
 class ViewController: UIViewController {
 
     @IBOutlet var textViewResult: UITextView!
     @IBOutlet var pushButton: NSLayoutConstraint!
+    @IBOutlet var registerButton: UIButton!
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
@@ -32,7 +36,67 @@ class ViewController: UIViewController {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
+    
+    
+    @IBAction func registerHttp(_ sender: Any) {
+        
+        
+        let appId = "Push appId"
+        let clientSecret = "Push clientSecret"
+        let hostName = "host name" //"http://imfpush.ng.bluemix.net"
+        let headers = ["Content-Type":"application/json", "clientSecret":clientSecret]
+        let url = hostName + "/imfpush/v1/apps/" + appId + "/devices";
+        
+        let authManager  = BMSClient.sharedInstance.authorizationManager
+        let devId = authManager.deviceIdentity.ID!
+        
+        let getRequest = Request(url: url, method: HttpMethod.POST, headers: headers, queryParameters: nil, timeout: 60, cachePolicy: .useProtocolCachePolicy)
 
+        let attributesDic:NSMutableDictionary = NSMutableDictionary()
+        let dataDic:NSMutableDictionary = NSMutableDictionary()
+        
+        
+        let slackId = "XXXXX"
+        let emailId = "XXXXXX3@myweb.com"
+        let twitterId = "XXXXXX_tweet"
+        let mobile = "+11111111"
+        
+        attributesDic.setValue(emailId, forKey: "email")
+        attributesDic.setValue(slackId, forKey: "slack")
+        attributesDic.setValue(twitterId, forKey: "twitter")
+        attributesDic.setValue(mobile, forKey: "mobileNumber")
+        
+        dataDic.setValue(devId + "_HTTP", forKey: "deviceId")
+        dataDic.setValue("ananth", forKey: "userId")
+        dataDic.setValue("HTTP", forKey: "platform")
+        dataDic.setObject(attributesDic, forKey: "attributes" as NSCopying)
+        
+        print(dataDic.description)
+        
+        
+        let data = try? JSONSerialization.data(withJSONObject: dataDic, options: [])
+
+        getRequest.send(requestBody: data!, completionHandler: { (response, error) -> Void in
+            
+            let status = response?.statusCode ?? 0
+          
+            if (status == 201){
+                
+                let respJson = response?.responseText
+                print(response?.responseText )
+                let data = respJson!.data(using: String.Encoding.utf8)
+                let jsonResponse:NSDictionary = try! JSONSerialization.jsonObject(with: data!, options: JSONSerialization.ReadingOptions.allowFragments) as! NSDictionary
+                
+                print(jsonResponse.description)
+                
+            }else{
+                print(response?.responseText )
+                
+            }
+        })
+        
+    }
+    
     @IBAction func pushAction(_ sender: UISwitch) {
         
         if sender.isOn{
@@ -41,7 +105,11 @@ class ViewController: UIViewController {
 
             let submitAction = UIAlertAction(title: "Yes, Please", style: .default, handler: { (action) -> Void in
                 self.textViewResult.text = "started Registration \n"
+                
                 self.appDelegate.registerForPush()
+                
+                self.registerButton.isUserInteractionEnabled = true
+                self.registerButton.backgroundColor = UIColor(red: 62/255, green: 192/255, blue: 239/255, alpha: 1.0)
             })
             let cancel = UIAlertAction(title: "No, Thanks", style: .destructive, handler: { (action) -> Void in
                 self.textViewResult.text = "User denied permission \n"
