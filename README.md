@@ -2,7 +2,21 @@
 ---
 This iOS helloPush sample contains an Swift project that you can use to learn more about the IBM Push Notification Service.
 
-### Requirements
+## Contents
+
+- [Prerequisites](#prerequisites)
+- [Create an instance of Bluemix Push Notifications Service](#create-an-instance-of-bluemix-push-notifications-service)
+- [Download and setup the sample](#download-and-setup-the-sample)
+- [Setup cocoapods or carthage](#setup-cocoapods-or-carthage)
+  - [Cocoa Pods](#cocoa-pods)
+  - [Carthage](#carthage)
+- [Modify the initialization code in the sample](#modify-the-initialization-code-in-the-sample)
+- [Register http End point](#register-httpend-point)
+- [Run the sample app](#run-the-sample-app)
+- [Samples and videos](#samples-and-videos)
+
+
+### Prerequisites
 
 * iOS 8.0+
 * Xcode 7.3, 8.+
@@ -27,7 +41,7 @@ Before you start, make sure you have the following:
 
 Navigate to the `helloPush_swift` folder for `Swift2.3 or Older Version of Swift` and to `helloPush_Swift3` folder for `Swift3` and do the following,
 
-##### Cocoa Pods:
+##### Cocoa Pods
 
 1. If the CocoapPods client is not installed, install it using the following command: `sudo gem install Cocoapods`
 2. If the CocoaPods repository is not configured, configure it using the following command: `pod setup`
@@ -36,7 +50,7 @@ Navigate to the `helloPush_swift` folder for `Swift2.3 or Older Version of Swift
 5. Open the `AppDelegate.swift` and add the corresponding **APPREGION** in the application `didFinishLaunchingWithOptions` method:
 
 
-##### Carthage :
+##### Carthage
 
 To install BMSPush using Carthage, add it to your Cartfile:
 
@@ -99,7 +113,74 @@ func application (_ application: UIApplication, didRegisterForRemoteNotification
 }
 ```
 
-### Run the sample app.
+### Register http End point
+
+To register an http endpoint device registration follow this way,
+
+```
+
+{
+
+
+        let appId = "Push appId"
+        let clientSecret = "Push clientSecret"
+        let hostName = "host name"
+        let headers = ["Content-Type":"application/json", "clientSecret":clientSecret]
+        let url = hostName + "/imfpush/v1/apps/" + appId + "/devices";
+
+        let authManager  = BMSClient.sharedInstance.authorizationManager
+        let devId = authManager.deviceIdentity.ID!
+
+        let getRequest = Request(url: url, method: HttpMethod.POST, headers: headers, queryParameters: nil, timeout: 60, cachePolicy: .useProtocolCachePolicy)
+
+        let attributesDic:NSMutableDictionary = NSMutableDictionary()
+        let dataDic:NSMutableDictionary = NSMutableDictionary()
+
+
+        let slackId = "xxxxxx"
+        let emailId = "xxxxx@myweb.com"
+        let twitterId = "xxxxx_tweet"
+        let mobile = "+11111111111"
+
+        attributesDic.setValue(emailId, forKey: "email")
+        attributesDic.setValue(slackId, forKey: "slack")
+        attributesDic.setValue(twitterId, forKey: "twitter")
+        attributesDic.setValue(mobile, forKey: "mobileNumber")
+
+        dataDic.setValue(devId + "_HTTP", forKey: "deviceId")
+        dataDic.setValue("ananth", forKey: "userId")
+        dataDic.setValue("HTTP", forKey: "platform")
+        dataDic.setObject(attributesDic, forKey: "attributes" as NSCopying)
+
+        print(dataDic.description)
+
+
+        let data = try? JSONSerialization.data(withJSONObject: dataDic, options: [])
+
+        getRequest.send(requestBody: data!, completionHandler: { (response, error) -> Void in
+
+            let status = response?.statusCode ?? 0
+
+            if (status == 201){
+
+                let respJson = response?.responseText
+                print(response?.responseText )
+                let data = respJson!.data(using: String.Encoding.utf8)
+                let jsonResponse:NSDictionary = try! JSONSerialization.jsonObject(with: data!, options: JSONSerialization.ReadingOptions.allowFragments) as! NSDictionary
+
+                print(jsonResponse.description)
+
+            }else{
+                print(response?.responseText )
+
+            }
+        })
+
+    }
+```
+
+
+### Run the sample app
 For push notifications to work successfully, you must run the helloPush sample on a physical iOS device. You will also need a valid APNs enabled bundle id, provisioning profile, and development certificate.
 
 When you run the application, you will see a single view application with a "Register for Push" Switch. When you click this switch the application will attempt to register the device and application to the Push Notification Service. The app uses an text view to display the registration status (successful or failed).
@@ -111,7 +192,7 @@ Now, switch over to the Bluemix Push Notifications service and open the service 
 [Connect Your iOS 9 App to Bluemix](https://developer.ibm.com/bluemix/2015/09/16/connect-your-ios-9-app-to-bluemix/)
 
 
-### Samples & videos
+### Samples and videos
 
 * Please visit for samples - [Github Sample](https://github.com/ibm-bluemix-mobile-services/bms-samples-swift-hellopush)
 
