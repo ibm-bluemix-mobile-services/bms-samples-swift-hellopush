@@ -35,9 +35,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         myBMSClient.initialize(bluemixRegion: BMSClient.Region.usSouth)
         let push =  BMSPushClient.sharedInstance
         
-        push.initializeWithAppGUID(appGUID: "2f603e43-3091-486b-865e-9d1e7be09611", clientSecret:"bcd72b9c-4183-46e8-9234-6134eef86426")
-        BMSPushClient.overrideServerHost = "http://imfpush-dev.stage1.ng.bluemix.net"
-
+        push.initializeWithAppGUID(appGUID: "appGUID", clientSecret:"ClientSecret")
 
     }
     
