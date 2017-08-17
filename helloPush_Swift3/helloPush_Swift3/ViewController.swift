@@ -47,8 +47,8 @@ class ViewController: UIViewController {
                 
                 self.appDelegate.registerForPush()
                 
-                self.registerButton.isUserInteractionEnabled = true
-                self.registerButton.backgroundColor = UIColor(red: 62/255, green: 192/255, blue: 239/255, alpha: 1.0)
+                //self.registerButton.isUserInteractionEnabled = true
+                //self.registerButton.backgroundColor = UIColor(red: 62/255, green: 192/255, blue: 239/255, alpha: 1.0)
             })
             let cancel = UIAlertAction(title: "No, Thanks", style: .destructive, handler: { (action) -> Void in
                 self.textViewResult.text = "User denied permission \n"
