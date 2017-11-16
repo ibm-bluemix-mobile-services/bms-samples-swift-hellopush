@@ -25,6 +25,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey : Any]? = nil) -> Bool {
         // Override point for customization after application launch.
+        UIApplication.shared.applicationIconBadgeNumber = 0;
         
         return true
     }
@@ -39,72 +40,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     }
     
-    func unRegisterPush () {
-        
-        // MARK:  RETRIEVING AVAILABLE SUBSCRIPTIONS
-        
-        let push =  BMSPushClient.sharedInstance
-        
-        push.retrieveSubscriptionsWithCompletionHandler { (response, statusCode, error) -> Void in
-            
-            if error.isEmpty {
-                
-                print( "Response during retrieving subscribed tags : \(response?.description)")
-                
-                print( "status code during retrieving subscribed tags : \(statusCode)")
-                
-                self.sendNotifToDisplayResponse(responseValue: "Response during retrieving subscribed tags: \(response?.description)")
-                
-                // MARK:  UNSUBSCRIBING TO TAGS
-                
-                push.unsubscribeFromTags(tagsArray: response!, completionHandler: { (response, statusCode, error) -> Void in
-                    
-                    if error.isEmpty {
-                        
-                        print( "Response during unsubscribed tags : \(response?.description)")
-                        
-                        print( "status code during unsubscribed tags : \(statusCode)")
-                        
-                        self.sendNotifToDisplayResponse(responseValue: "Response during unsubscribed tags: \(response?.description)")
-                        
-                        // MARK:  UNSREGISTER DEVICE
-                        push.unregisterDevice(completionHandler: { (response, statusCode, error) -> Void in
-                            
-                            if error.isEmpty {
-                                
-                                print( "Response during unregistering device : \(response)")
-                                
-                                print( "status code during unregistering device : \(statusCode)")
-                                
-                                self.sendNotifToDisplayResponse(responseValue: "Response during unregistering device: \(response)")
-                                
-                                UIApplication.shared.unregisterForRemoteNotifications()
-                            }
-                            else{
-                                print( "Error during unregistering device \(error) ")
-                                
-                                self.sendNotifToDisplayResponse( responseValue: "Error during unregistering device \n  - status code: \(statusCode) \n Error :\(error) \n")
-                            }
-                        })
-                    }
-                    else {
-                        print( "Error during  unsubscribed tags \(error) ")
-                        
-                        self.sendNotifToDisplayResponse( responseValue: "Error during unsubscribed tags \n  - status code: \(statusCode) \n Error :\(error) \n")
-                    }
-                })
-            }
-            else {
-                
-                print( "Error during retrieving subscribed tags \(error) ")
-                
-                self.sendNotifToDisplayResponse( responseValue: "Error during retrieving subscribed tags \n  - status code: \(statusCode) \n Error :\(error) \n")
-            }
-            
-        }
-        
-    }
-    
     func application (_ application: UIApplication, didRegisterForRemoteNotificationsWithDeviceToken deviceToken: Data){
                
         let push =  BMSPushClient.sharedInstance
@@ -112,80 +47,82 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             
             if error.isEmpty {
                 
-                print( "Response during device registration : \(response)")
+                print( "Response during device registration : \(String(describing: response))")
                 
-                print( "status code during device registration : \(statusCode)")
+                print( "status code during device registration : \(String(describing: statusCode))")
+                let responseJson = self.convertStringToDictionary(text: response!)! as NSDictionary
+                let userId = responseJson.value(forKey: "userId")
                 
-                self.sendNotifToDisplayResponse(responseValue: "Response during device registration json: \(response)")
-                
-                // MARK:    RETRIEVING AVAILABLE TAGS
-                
-                push.retrieveAvailableTagsWithCompletionHandler(completionHandler: { (response, statusCode, error) -> Void in
-                    
-                    if error.isEmpty {
-                        
-                        print( "Response during retrieve tags : \(response)")
-                        
-                        print( "status code during retrieve tags : \(statusCode)")
-                        
-                        self.sendNotifToDisplayResponse(responseValue: "Response during retrieve tags: \(response?.description)")
-                        
-                        // MARK:    SUBSCRIBING TO AVAILABLE TAGS
-                        push.subscribeToTags(tagsArray: response!, completionHandler: { (response, statusCode, error) -> Void in
-                            
-                            if error.isEmpty {
-                                
-                                print( "Response during Subscribing to tags : \(response?.description)")
-                                
-                                print( "status code during Subscribing tags : \(statusCode)")
-                                
-                                self.sendNotifToDisplayResponse(responseValue: "Response during Subscribing tags: \(response?.description)")
-                                
-                                // MARK:  RETRIEVING AVAILABLE SUBSCRIPTIONS
-                                push.retrieveSubscriptionsWithCompletionHandler(completionHandler: { (response, statusCode, error) -> Void in
-                                    
-                                    if error.isEmpty {
-                                        
-                                        print( "Response during retrieving subscribed tags : \(response?.description)")
-                                        
-                                        print( "status code during retrieving subscribed tags : \(statusCode)")
-                                        
-                                        self.sendNotifToDisplayResponse(responseValue: "Response during retrieving subscribed tags: \(response?.description)")
-                                    }
-                                    else {
-                                        
-                                        print( "Error during retrieving subscribed tags \(error) ")
-                                        
-                                        self.sendNotifToDisplayResponse( responseValue: "Error during retrieving subscribed tags \n  - status code: \(statusCode) \n Error :\(error) \n")
-                                    }
-                                    
-                                })
-                                
-                            }
-                            else {
-                                
-                                print( "Error during subscribing tags \(error) ")
-                                
-                                self.sendNotifToDisplayResponse( responseValue: "Error during subscribing tags \n  - status code: \(statusCode) \n Error :\(error) \n")
-                            }
-                            
-                        })
-                    }
-                    else {
-                        print( "Error during retrieve tags \(error) ")
-                        
-                        self.sendNotifToDisplayResponse( responseValue: "Error during retrieve tags \n  - status code: \(statusCode) \n Error :\(error) \n")
-                    }
-                    
-                    
-                })
+                self.sendNotifToDisplayResponse(responseValue: "Device Registered Successfully with User ID \(String(describing: userId!))", responseBool: true)
             }
             else{
                 print( "Error during device registration \(error) ")
                 
-                self.sendNotifToDisplayResponse( responseValue: "Error during device registration \n  - status code: \(statusCode) \n Error :\(error) \n")
+                self.sendNotifToDisplayResponse( responseValue: "Error during device registration \n  - status code: \(String(describing: statusCode)) \n Error :\(error) \n", responseBool: false)
             }
         }
+        /*
+        // MARK:    RETRIEVING AVAILABLE TAGS
+        
+        push.retrieveAvailableTagsWithCompletionHandler(completionHandler: { (response, statusCode, error) -> Void in
+            
+            if error.isEmpty {
+                
+                print( "Response during retrieve tags : \(String(describing: response))")
+                
+                print( "status code during retrieve tags : \(String(describing: statusCode))")
+                
+                self.sendNotifToDisplayResponse(responseValue: "Response during retrieve tags: \(String(describing: response?.description))")
+                
+                // MARK:    SUBSCRIBING TO AVAILABLE TAGS
+                push.subscribeToTags(tagsArray: response!, completionHandler: { (response, statusCode, error) -> Void in
+                    
+                    if error.isEmpty {
+                        
+                        print( "Response during Subscribing to tags : \(String(describing: response?.description))")
+                        
+                        print( "status code during Subscribing tags : \(String(describing: statusCode))")
+                        
+                        self.sendNotifToDisplayResponse(responseValue: "Response during Subscribing tags: \(String(describing: response?.description))")
+                        
+                        // MARK:  RETRIEVING AVAILABLE SUBSCRIPTIONS
+                        push.retrieveSubscriptionsWithCompletionHandler(completionHandler: { (response, statusCode, error) -> Void in
+                            
+                            if error.isEmpty {
+                                
+                                print( "Response during retrieving subscribed tags : \(response?.description)")
+                                
+                                print( "status code during retrieving subscribed tags : \(statusCode)")
+                                
+                                self.sendNotifToDisplayResponse(responseValue: "Response during retrieving subscribed tags: \(response?.description)")
+                            }
+                            else {
+                                
+                                print( "Error during retrieving subscribed tags \(error) ")
+                                
+                                self.sendNotifToDisplayResponse( responseValue: "Error during retrieving subscribed tags \n  - status code: \(statusCode) \n Error :\(error) \n")
+                            }
+                            
+                        })
+                        
+                    }
+                    else {
+                        
+                        print( "Error during subscribing tags \(error) ")
+                        
+                        self.sendNotifToDisplayResponse( responseValue: "Error during subscribing tags \n  - status code: \(statusCode) \n Error :\(error) \n")
+                    }
+                    
+                })
+            }
+            else {
+                print( "Error during retrieve tags \(error) ")
+                
+                self.sendNotifToDisplayResponse( responseValue: "Error during retrieve tags \n  - status code: \(statusCode) \n Error :\(error) \n")
+            }
+            
+            
+        })*/
     }
     
     //Called if unable to register for APNS.
@@ -207,9 +144,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
     }
     
-    func sendNotifToDisplayResponse (responseValue:String){
+    func sendNotifToDisplayResponse (responseValue:String, responseBool: Bool){
         
         responseText = responseValue
+        isSuccess = responseBool
         NotificationCenter.default.post(name: NSNotification.Name(rawValue: "action"), object: self);
     }
     
@@ -224,6 +162,70 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         // show the alert
         self.window!.rootViewController!.present(alert, animated: true, completion: nil)
+    }
+    func convertStringToDictionary(text: String) -> [String:AnyObject]? {
+        if let data = text.data(using: String.Encoding.utf8) {
+            
+            guard let result = try? JSONSerialization.jsonObject(with: data, options: []) as? [String:AnyObject] else {
+                return [:]
+            }
+            return result
+        }
+        return [:]
+    }
+    
+    func unRegisterPush () {
+        
+        // MARK:  RETRIEVING AVAILABLE SUBSCRIPTIONS
+        
+        let push =  BMSPushClient.sharedInstance
+        
+        push.retrieveSubscriptionsWithCompletionHandler { (response, statusCode, error) -> Void in
+            
+            if error.isEmpty {
+                
+                print( "Response during retrieving subscribed tags : \(String(describing: response?.description))")
+                
+                print( "status code during retrieving subscribed tags : \(String(describing: statusCode))")
+                
+                // MARK:  UNSUBSCRIBING TO TAGS
+                
+                push.unsubscribeFromTags(tagsArray: response!, completionHandler: { (response, statusCode, error) -> Void in
+                    
+                    if error.isEmpty {
+                        
+                        print( "Response during unsubscribed tags : \(String(describing: response?.description))")
+                        
+                        print( "status code during unsubscribed tags : \(String(describing: statusCode))")
+                        
+                        // MARK:  UNSREGISTER DEVICE
+                        push.unregisterDevice(completionHandler: { (response, statusCode, error) -> Void in
+                            
+                            if error.isEmpty {
+                                
+                                print( "Response during unregistering device : \(String(describing: response))")
+                                
+                                print( "status code during unregistering device : \(String(describing: statusCode))")
+                                
+                                UIApplication.shared.unregisterForRemoteNotifications()
+                            }
+                            else{
+                                print( "Error during unregistering device \(error) ")
+                            }
+                        })
+                    }
+                    else {
+                        print( "Error during  unsubscribed tags \(error) ")
+                    }
+                })
+            }
+            else {
+                
+                print( "Error during retrieving subscribed tags \(error) ")
+            }
+            
+        }
+        
     }
 
 }

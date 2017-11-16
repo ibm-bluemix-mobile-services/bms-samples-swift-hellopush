@@ -23,7 +23,6 @@
 		145E887E1D73F1DA00C43FA8 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		145E88811D73F1DA00C43FA8 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		145E88831D73F1DA00C43FA8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		188B6C191F1CC3D100A26F28 /* helloPush_Swift3.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = helloPush_Swift3.entitlements; sourceTree = "<group>"; };
 		66F079B8864E2B11A6483EDE /* Pods_helloPush_Swift3.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_helloPush_Swift3.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		84B184571EAA4706BC6DF44F /* Pods-helloPush_Swift3.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-helloPush_Swift3.debug.xcconfig"; path = "Pods/Target Support Files/Pods-helloPush_Swift3/Pods-helloPush_Swift3.debug.xcconfig"; sourceTree = "<group>"; };
 		D5396ACC965A40AB355B5ECB /* Pods-helloPush_Swift3.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-helloPush_Swift3.release.xcconfig"; path = "Pods/Target Support Files/Pods-helloPush_Swift3/Pods-helloPush_Swift3.release.xcconfig"; sourceTree = "<group>"; };
@@ -62,7 +61,6 @@
 		145E88761D73F1DA00C43FA8 /* helloPush_Swift3 */ = {
 			isa = PBXGroup;
 			children = (
-				188B6C191F1CC3D100A26F28 /* helloPush_Swift3.entitlements */,
 				145E88771D73F1DA00C43FA8 /* AppDelegate.swift */,
 				145E88791D73F1DA00C43FA8 /* ViewController.swift */,
 				145E887B1D73F1DA00C43FA8 /* Main.storyboard */,
@@ -129,10 +127,10 @@
 						ProvisioningStyle = Manual;
 						SystemCapabilities = {
 							com.apple.BackgroundModes = {
-								enabled = 1;
+								enabled = 0;
 							};
 							com.apple.Push = {
-								enabled = 1;
+								enabled = 0;
 							};
 						};
 					};
@@ -270,8 +268,8 @@
 				CLANG_WARN_SUSPICIOUS_MOVES = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				CODE_SIGN_IDENTITY = "iPhone Developer: Anantha Krishnan K G (6ADZ6AJGXG)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Anantha Krishnan K G (6ADZ6AJGXG)";
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				DEVELOPMENT_TEAM = TN6YQNGLXP;
@@ -294,7 +292,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
-				PROVISIONING_PROFILE = "039dd6fb-1a99-4b26-b961-ea4b62e4fb4e";
+				PROVISIONING_PROFILE = "";
 				SDKROOT = iphoneos;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
@@ -323,8 +321,8 @@
 				CLANG_WARN_SUSPICIOUS_MOVES = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				CODE_SIGN_IDENTITY = "iPhone Developer: Anantha Krishnan K G (6ADZ6AJGXG)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Anantha Krishnan K G (6ADZ6AJGXG)";
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				DEVELOPMENT_TEAM = TN6YQNGLXP;
@@ -340,7 +338,7 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
-				PROVISIONING_PROFILE = "039dd6fb-1a99-4b26-b961-ea4b62e4fb4e";
+				PROVISIONING_PROFILE = "";
 				SDKROOT = iphoneos;
 				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -353,15 +351,13 @@
 			baseConfigurationReference = 84B184571EAA4706BC6DF44F /* Pods-helloPush_Swift3.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_ENTITLEMENTS = helloPush_Swift3/helloPush_Swift3.entitlements;
-				CODE_SIGN_IDENTITY = "iPhone Developer: Anantha Krishnan K G (6ADZ6AJGXG)";
+				CODE_SIGN_IDENTITY = "";
 				DEVELOPMENT_TEAM = TN6YQNGLXP;
 				INFOPLIST_FILE = helloPush_Swift3/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.bmdpush.push;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "039dd6fb-1a99-4b26-b961-ea4b62e4fb4e";
-				PROVISIONING_PROFILE_SPECIFIER = "Ananth Push Development cert";
+				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 3.0;
 			};
 			name = Debug;
@@ -371,15 +367,13 @@
 			baseConfigurationReference = D5396ACC965A40AB355B5ECB /* Pods-helloPush_Swift3.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_ENTITLEMENTS = helloPush_Swift3/helloPush_Swift3.entitlements;
-				CODE_SIGN_IDENTITY = "iPhone Developer: Anantha Krishnan K G (6ADZ6AJGXG)";
+				CODE_SIGN_IDENTITY = "";
 				DEVELOPMENT_TEAM = TN6YQNGLXP;
 				INFOPLIST_FILE = helloPush_Swift3/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.bmdpush.push;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "039dd6fb-1a99-4b26-b961-ea4b62e4fb4e";
-				PROVISIONING_PROFILE_SPECIFIER = "Ananth Push Development cert";
+				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 3.0;
 			};
 			name = Release;
