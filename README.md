@@ -39,14 +39,14 @@ Before you start, make sure you have the following:
 
 #### Setup cocoapods or carthage
 
-Navigate to the `helloPush_swift` folder for `Swift2.3 or Older Version of Swift` and to `helloPush_Swift3` folder for `Swift3` and do the following,
+Navigate to the `helloPush_swift` folder for `Swift2.3 or Older Version of Swift` and to `helloPush_Swift3` folder for `Swift3/Swift4` and do the following,
 
 ##### Cocoa Pods
 
 1. If the CocoapPods client is not installed, install it using the following command: `sudo gem install Cocoapods`
 2. If the CocoaPods repository is not configured, configure it using the following command: `pod setup`
 3. Run the `pod install` command to download and install the required dependencies.
-4. Open the Xcode workspace: `open TestPush.xcworkspace` (swift 2.3 ) or `helloPush_Swift3.xcworkspace` (Swift3). From now on, open the xcworkspace file since it contains all the dependencies and configuration.
+4. Open the Xcode workspace: `open TestPush.xcworkspace` (swift 2.3 ) or `helloPush_Swift3.xcworkspace` (Swift3/Swift4). From now on, open the xcworkspace file since it contains all the dependencies and configuration.
 5. Open the `AppDelegate.swift` and add the corresponding **APPREGION** in the application `didFinishLaunchingWithOptions` method:
 
 
@@ -66,7 +66,7 @@ Then run the `carthage update` command. Once the build is finished, drag `BMSPus
 ```
 let myBMSClient = BMSClient.sharedInstance
 
-//Swift3
+//Swift3/Swift4
 
 myBMSClient.initialize(bluemixRegion: "Location where your app Hosted")
 
