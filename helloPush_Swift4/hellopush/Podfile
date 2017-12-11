@@ -1,0 +1,6 @@
+use_frameworks!
+
+target 'helloPush' do
+    pod 'BMSPush'
+    pod 'BMSCore'
+end
