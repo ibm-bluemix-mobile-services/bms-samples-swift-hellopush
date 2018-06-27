@@ -1,6 +1,6 @@
-# iOS helloPush Sample Application for Bluemix Mobile Services
+# iOS helloPush Sample Application for IBM Cloud Push Notifications Service 
 ---
-This iOS helloPush sample contains an Swift project that you can use to learn more about the IBM Push Notification Service.
+This iOS helloPush sample contains an Swift project that you can use to learn more about the IBM Cloud Push Notification Service.
 
 ## Contents
 
@@ -20,15 +20,15 @@ This iOS helloPush sample contains an Swift project that you can use to learn mo
 
 * iOS 8.0+
 * Xcode 7.3, 8.+
-* Swift 2.2 - 3.+
+* Swift 2.2 - 4.+
 
 Before you start, make sure you have the following:
 
-- A [Bluemix](http://bluemix.net) account.
+- A [IBM Cloud](http://bluemix.net) account.
 - APNs enabled push certificate (.p12 file) and the certificate password . For information about how to obtain a p.12 certificate, see the [configuring credentials for a notification provider](https://www.ng.bluemix.net/docs/services/mobilepush/index.html#push_provider) section in the Push documentation.
 
-### Create an instance of Bluemix Push Notifications Service
-- Create an instance of  Bluemix Push Notifications Service and [configure](https://console.ng.bluemix.net/docs/services/mobilepush/t_push_provider_ios.html) it .
+### Create an instance of IBM Cloud Push Notifications Service
+- Create an instance of IBM Cloud Push Notifications Service and [configure](https://console.ng.bluemix.net/docs/services/mobilepush/t_push_provider_ios.html) it .
 
 ### Download and setup the sample
 - Clone the sample from Github with the following command:
