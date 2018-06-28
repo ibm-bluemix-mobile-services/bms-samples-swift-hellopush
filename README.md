@@ -5,7 +5,7 @@ This iOS helloPush sample contains an Swift project that you can use to learn mo
 ## Contents
 
 - [Prerequisites](#prerequisites)
-- [Create an instance of Bluemix Push Notifications Service](#create-an-instance-of-bluemix-push-notifications-service)
+- [Create an instance of IBM Cloud Push Notifications Service](#create-an-instance-of-bluemix-push-notifications-service)
 - [Download and setup the sample](#download-and-setup-the-sample)
 - [Setup cocoapods or carthage](#setup-cocoapods-or-carthage)
   - [Cocoa Pods](#cocoa-pods)
@@ -68,18 +68,14 @@ For push notifications to work successfully, you must run the helloPush sample o
 
 When you run the application, you will see a single view application with a "Register for Push" Switch. When you click this switch the application will attempt to register the device and application to the Push Notification Service. The app uses an text view to display the registration status (successful or failed).
 
-Now, switch over to the Bluemix Push Notifications service and open the service dashboard.  Navigate to 'Send Notifications' and send a notification.  You could either send a broadcast notification or a notification targeted to iOS platform so that a notification is sent to the helloPush Swift application.  When a push notification is received and the application is in the foreground, an alert is displayed showing the notification's content.
-
->**Note:** This application runs on the latest version of XCode (7.0). The application has been updated to set Enable Bitcode to No in the build-settings as a workaround for the these settings introduced in iOS 9. For more info please see the following blog entry:
-
-[Connect Your iOS 9 App to Bluemix](https://developer.ibm.com/bluemix/2015/09/16/connect-your-ios-9-app-to-bluemix/)
+Now, switch over to the IBM Cloud Push Notifications service and open the service dashboard.  Navigate to 'Send Notifications' and send a notification.  You could either send a broadcast notification or a notification targeted to iOS platform so that a notification is sent to the helloPush Swift application.  When a push notification is received and the application is in the foreground, an alert is displayed showing the notification's content.
 
 
 ### Samples and videos
 
 * Please visit for samples - [Github Sample](https://github.com/ibm-bluemix-mobile-services/bms-samples-swift-hellopush)
 
-* Video Tutorials Available here - [Bluemix Push Notifications](https://www.youtube.com/channel/UCRr2Wou-z91fD6QOYtZiHGA)
+* Video Tutorials Available here - [IBM Cloud Push Notifications](https://www.youtube.com/channel/UCRr2Wou-z91fD6QOYtZiHGA)
 
 =======================
 Copyright 2016 IBM Corp.
