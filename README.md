@@ -51,7 +51,7 @@ Navigate to the `HelloPush` folder and do the following,
 let cloudRegion = BMSClient.Region.usSouth
 let pushAppGUID = "27ee87ce-ed4c-4167-XXXX-XXXXXXX"
 let pushClientSecret = "813a430f-XXXXX-XXXXXX-b8e0-XXXXXXXXX"
-let userId = "ananth"
+let userId = "David"
 let customeDeviceId = "DavidmobiledeviceId"
 let pushVariables = ["username":"David","accountNumber":"3564758697057869"]
 
