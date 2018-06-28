@@ -1,0 +1,474 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 50;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		184EB4A82E63229CE65C11EE /* Pods_HelloPush.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F0C4627639B325B2E3683975 /* Pods_HelloPush.framework */; };
+		18621CDA20E494A800956E5A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18621CD920E494A800956E5A /* AppDelegate.swift */; };
+		18621CDC20E494A800956E5A /* PushViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18621CDB20E494A800956E5A /* PushViewController.swift */; };
+		18621CDF20E494A800956E5A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 18621CDD20E494A800956E5A /* Main.storyboard */; };
+		18621CE120E494AA00956E5A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 18621CE020E494AA00956E5A /* Assets.xcassets */; };
+		18621CE420E494AA00956E5A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 18621CE220E494AA00956E5A /* LaunchScreen.storyboard */; };
+		188B80F420E4CCC80033D544 /* BMSPushRegister.swift in Sources */ = {isa = PBXBuildFile; fileRef = 188B80F320E4CCC80033D544 /* BMSPushRegister.swift */; };
+		188B80F620E4DCB50033D544 /* BMSAlertView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 188B80F520E4DCB50033D544 /* BMSAlertView.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		18621CD620E494A800956E5A /* HelloPush.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HelloPush.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		18621CD920E494A800956E5A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		18621CDB20E494A800956E5A /* PushViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PushViewController.swift; sourceTree = "<group>"; };
+		18621CDE20E494A800956E5A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		18621CE020E494AA00956E5A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		18621CE320E494AA00956E5A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		18621CE520E494AA00956E5A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		188B80F320E4CCC80033D544 /* BMSPushRegister.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BMSPushRegister.swift; sourceTree = "<group>"; };
+		188B80F520E4DCB50033D544 /* BMSAlertView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BMSAlertView.swift; sourceTree = "<group>"; };
+		188B80F920E50D950033D544 /* HelloPush.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = HelloPush.entitlements; sourceTree = "<group>"; };
+		1A47759B932BE4A29C3032E1 /* Pods-HelloPush.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HelloPush.release.xcconfig"; path = "Pods/Target Support Files/Pods-HelloPush/Pods-HelloPush.release.xcconfig"; sourceTree = "<group>"; };
+		46A8DFE78EB3A9D1D55D1C85 /* Pods-HelloPush.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HelloPush.debug.xcconfig"; path = "Pods/Target Support Files/Pods-HelloPush/Pods-HelloPush.debug.xcconfig"; sourceTree = "<group>"; };
+		F0C4627639B325B2E3683975 /* Pods_HelloPush.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_HelloPush.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		18621CD320E494A800956E5A /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				184EB4A82E63229CE65C11EE /* Pods_HelloPush.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		18621CCD20E494A800956E5A = {
+			isa = PBXGroup;
+			children = (
+				18621CD820E494A800956E5A /* HelloPush */,
+				18621CD720E494A800956E5A /* Products */,
+				B2B0DE8107BE978F345B72FB /* Pods */,
+				6B4EFA295E61961413D32745 /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		18621CD720E494A800956E5A /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				18621CD620E494A800956E5A /* HelloPush.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		18621CD820E494A800956E5A /* HelloPush */ = {
+			isa = PBXGroup;
+			children = (
+				188B80FB20E5202F0033D544 /* Controller */,
+				188B80FA20E520220033D544 /* Modal */,
+				188B80F920E50D950033D544 /* HelloPush.entitlements */,
+				18621CD920E494A800956E5A /* AppDelegate.swift */,
+				188B80F320E4CCC80033D544 /* BMSPushRegister.swift */,
+				18621CDD20E494A800956E5A /* Main.storyboard */,
+				18621CE020E494AA00956E5A /* Assets.xcassets */,
+				18621CE220E494AA00956E5A /* LaunchScreen.storyboard */,
+				18621CE520E494AA00956E5A /* Info.plist */,
+			);
+			path = HelloPush;
+			sourceTree = "<group>";
+		};
+		188B80FA20E520220033D544 /* Modal */ = {
+			isa = PBXGroup;
+			children = (
+				188B80F520E4DCB50033D544 /* BMSAlertView.swift */,
+			);
+			path = Modal;
+			sourceTree = "<group>";
+		};
+		188B80FB20E5202F0033D544 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				18621CDB20E494A800956E5A /* PushViewController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		6B4EFA295E61961413D32745 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				F0C4627639B325B2E3683975 /* Pods_HelloPush.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		B2B0DE8107BE978F345B72FB /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				46A8DFE78EB3A9D1D55D1C85 /* Pods-HelloPush.debug.xcconfig */,
+				1A47759B932BE4A29C3032E1 /* Pods-HelloPush.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		18621CD520E494A800956E5A /* HelloPush */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 18621CE820E494AA00956E5A /* Build configuration list for PBXNativeTarget "HelloPush" */;
+			buildPhases = (
+				09413ED0ABD28F6DC548BB88 /* [CP] Check Pods Manifest.lock */,
+				18621CD220E494A800956E5A /* Sources */,
+				18621CD320E494A800956E5A /* Frameworks */,
+				18621CD420E494A800956E5A /* Resources */,
+				A32E92C436BB90B1C9581A5C /* [CP] Embed Pods Frameworks */,
+				BC9D94C49F8B62CF69FA1993 /* [CP] Copy Pods Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = HelloPush;
+			productName = HelloPush;
+			productReference = 18621CD620E494A800956E5A /* HelloPush.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		18621CCE20E494A800956E5A /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0930;
+				LastUpgradeCheck = 0930;
+				ORGANIZATIONNAME = Ananth;
+				TargetAttributes = {
+					18621CD520E494A800956E5A = {
+						CreatedOnToolsVersion = 9.3;
+						SystemCapabilities = {
+							com.apple.BackgroundModes = {
+								enabled = 1;
+							};
+							com.apple.Push = {
+								enabled = 1;
+							};
+						};
+					};
+				};
+			};
+			buildConfigurationList = 18621CD120E494A800956E5A /* Build configuration list for PBXProject "HelloPush" */;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 18621CCD20E494A800956E5A;
+			productRefGroup = 18621CD720E494A800956E5A /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				18621CD520E494A800956E5A /* HelloPush */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		18621CD420E494A800956E5A /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				18621CE420E494AA00956E5A /* LaunchScreen.storyboard in Resources */,
+				18621CE120E494AA00956E5A /* Assets.xcassets in Resources */,
+				18621CDF20E494A800956E5A /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		09413ED0ABD28F6DC548BB88 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-HelloPush-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		A32E92C436BB90B1C9581A5C /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-HelloPush/Pods-HelloPush-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/BMSAnalyticsAPI/BMSAnalyticsAPI.framework",
+				"${BUILT_PRODUCTS_DIR}/BMSCore/BMSCore.framework",
+				"${BUILT_PRODUCTS_DIR}/BMSPush/BMSPush.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/BMSAnalyticsAPI.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/BMSCore.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/BMSPush.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-HelloPush/Pods-HelloPush-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		BC9D94C49F8B62CF69FA1993 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-HelloPush/Pods-HelloPush-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		18621CD220E494A800956E5A /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				18621CDC20E494A800956E5A /* PushViewController.swift in Sources */,
+				188B80F420E4CCC80033D544 /* BMSPushRegister.swift in Sources */,
+				188B80F620E4DCB50033D544 /* BMSAlertView.swift in Sources */,
+				18621CDA20E494A800956E5A /* AppDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		18621CDD20E494A800956E5A /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				18621CDE20E494A800956E5A /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		18621CE220E494AA00956E5A /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				18621CE320E494AA00956E5A /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		18621CE620E494AA00956E5A /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer: Anantha Krishnan K G (6ADZ6AJGXG)";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEVELOPMENT_TEAM = TN6YQNGLXP;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				PROVISIONING_PROFILE = "ce4aa56a-6b1f-48ad-9453-bc49204160c2";
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 4.0;
+			};
+			name = Debug;
+		};
+		18621CE720E494AA00956E5A /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer: Anantha Krishnan K G (6ADZ6AJGXG)";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEVELOPMENT_TEAM = TN6YQNGLXP;
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				PROVISIONING_PROFILE = "ce4aa56a-6b1f-48ad-9453-bc49204160c2";
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				SWIFT_VERSION = 4.0;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		18621CE920E494AA00956E5A /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 46A8DFE78EB3A9D1D55D1C85 /* Pods-HelloPush.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = HelloPush/HelloPush.entitlements;
+				CODE_SIGN_IDENTITY = "iPhone Developer: Anantha Krishnan K G (6ADZ6AJGXG)";
+				CODE_SIGN_STYLE = Manual;
+				DEVELOPMENT_TEAM = TN6YQNGLXP;
+				INFOPLIST_FILE = HelloPush/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.bmdpush.push;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "ce4aa56a-6b1f-48ad-9453-bc49204160c2";
+				PROVISIONING_PROFILE_SPECIFIER = "Ananth Push Development cert";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		18621CEA20E494AA00956E5A /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 1A47759B932BE4A29C3032E1 /* Pods-HelloPush.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = HelloPush/HelloPush.entitlements;
+				CODE_SIGN_IDENTITY = "iPhone Developer: Anantha Krishnan K G (6ADZ6AJGXG)";
+				CODE_SIGN_STYLE = Manual;
+				DEVELOPMENT_TEAM = TN6YQNGLXP;
+				INFOPLIST_FILE = HelloPush/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.bmdpush.push;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "ce4aa56a-6b1f-48ad-9453-bc49204160c2";
+				PROVISIONING_PROFILE_SPECIFIER = "Ananth Push Development cert";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		18621CD120E494A800956E5A /* Build configuration list for PBXProject "HelloPush" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				18621CE620E494AA00956E5A /* Debug */,
+				18621CE720E494AA00956E5A /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		18621CE820E494AA00956E5A /* Build configuration list for PBXNativeTarget "HelloPush" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				18621CE920E494AA00956E5A /* Debug */,
+				18621CEA20E494AA00956E5A /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 18621CCE20E494A800956E5A /* Project object */;
+}
