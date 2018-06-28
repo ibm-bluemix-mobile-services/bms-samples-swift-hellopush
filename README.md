@@ -9,9 +9,7 @@ This iOS helloPush sample contains an Swift project that you can use to learn mo
 - [Download and setup the sample](#download-and-setup-the-sample)
 - [Setup cocoapods or carthage](#setup-cocoapods-or-carthage)
   - [Cocoa Pods](#cocoa-pods)
-  - [Carthage](#carthage)
-- [Modify the initialization code in the sample](#modify-the-initialization-code-in-the-sample)
-- [Register http End point](#register-httpend-point)
+- [Modify the options code in the sample](#modify-the-options-code-in-the-sample)
 - [Run the sample app](#run-the-sample-app)
 - [Samples and videos](#samples-and-videos)
 
@@ -19,8 +17,8 @@ This iOS helloPush sample contains an Swift project that you can use to learn mo
 ### Prerequisites
 
 * iOS 8.0+
-* Xcode 7.3, 8.+
-* Swift 2.2 - 4.+
+* Xcode 9.3 (9E145)
+* Swift 4.1
 
 Before you start, make sure you have the following:
 
@@ -39,79 +37,31 @@ Before you start, make sure you have the following:
 
 #### Setup cocoapods or carthage
 
-Navigate to the `helloPush_swift` folder for `Swift2.3 or Older Version of Swift` and to `helloPush_Swift3` folder for `Swift3/Swift4` and do the following,
+Navigate to the `HelloPush` folder and do the following,
 
 ##### Cocoa Pods
 
 1. If the CocoapPods client is not installed, install it using the following command: `sudo gem install Cocoapods`
 2. If the CocoaPods repository is not configured, configure it using the following command: `pod setup`
 3. Run the `pod install` command to download and install the required dependencies.
-4. Open the Xcode workspace: `open TestPush.xcworkspace` (swift 2.3 ) or `helloPush_Swift3.xcworkspace` (Swift3/Swift4). From now on, open the xcworkspace file since it contains all the dependencies and configuration.
-5. Open the `AppDelegate.swift` and add the corresponding **APPREGION** in the application `didFinishLaunchingWithOptions` method:
-
-
-##### Carthage
-
-To install BMSPush using Carthage, add it to your Cartfile:
-
-  ```
-     github "ibm-bluemix-mobile-services/bms-clientsdk-swift-push"
-  ```
->**Note**: Carthage currently is not supported for BMSPush in Xcode 8 beta. Please use Cocoapods instead.
-
-Then run the `carthage update` command. Once the build is finished, drag `BMSPush.framework`, `BMSCore.framework` and `BMSAnalyticsAPI.framework` into your Xcode project.
-
-### Modify the initialization code in the sample
+4. Open the Xcode workspace: `HelloPush.xcworkspace` . From now on, open the xcworkspace file since it contains all the dependencies and configuration.
+5. Open the `BMSPushRegister.swift` and add the IBM Cloud push notification service credentials
 
 ```
-let myBMSClient = BMSClient.sharedInstance
-
-//Swift3/Swift4
-
-myBMSClient.initialize(bluemixRegion: "Location where your app Hosted")
-
-//Swift 2.3 or Older
-
-myBMSClient.initialize(bluemixRegion: "Location where your app Hosted")
-
+let cloudRegion = BMSClient.Region.usSouth
+let pushAppGUID = "27ee87ce-ed4c-4167-XXXX-XXXXXXX"
+let pushClientSecret = "813a430f-XXXXX-XXXXXX-b8e0-XXXXXXXXX"
+let userId = "ananth"
+let customeDeviceId = "DavidmobiledeviceId"
+let pushVariables = ["username":"David","accountNumber":"3564758697057869"]
 
 ```
 
-After registering with APNs, pass the device token to the Bluemix push registration API. Follow docs in [BMSPush SDK](https://github.com/ibm-bluemix-mobile-services/bms-clientsdk-swift-push)
 
-```
-func application (_ application: UIApplication, didRegisterForRemoteNotificationsWithDeviceToken deviceToken: Data){
+### Modify the options code in the sample
 
-   let push =  BMSPushClient.sharedInstance
-   push.initializeWithAppGUID(appGUID: "your Push App GUID", clientSecret: "your Push App client secret")
-   push.registerWithDeviceToken(deviceToken: deviceToken) { (response, statusCode, error) -> Void in
-    if error.isEmpty {
-      print( "Response during device registration : \(response)")
-      print( "status code during device registration : \(statusCode)")
-    } else{
-      print( "Error during device registration \(error) ")
-      Print( "Error during device registration \n  - status code: \(statusCode) \n Error :\(error) \n")
-    }  
- }
+Check the `getPushOptions()` method in `BMSPushRegister.swift` and add the options you need.
 
-
- //Swift2.3 and Older
-
- func application (application: UIApplication, didRegisterForRemoteNotificationsWithDeviceToken deviceToken: NSData){
-
-   let push =  BMSPushClient.sharedInstance
-   push.initializeWithAppGUID(appGUID: "your Push App GUID", clientSecret: "your Push App client secret")
-   push.registerWithDeviceToken(deviceToken) { (response, statusCode, error) -> Void in
-        if error.isEmpty {
-            print( "Response during device registration : \(response)")
-            print( "status code during device registration : \(statusCode)")
-        }else{
-            print( "Error during device registration \(error) ")
-            Print( "Error during device registration \n  - status code: \(statusCode) \n Error :\(error) \n")
-        }
-    }
-}
-```
 
 ### Run the sample app
 For push notifications to work successfully, you must run the helloPush sample on a physical iOS device. You will also need a valid APNs enabled bundle id, provisioning profile, and development certificate.
