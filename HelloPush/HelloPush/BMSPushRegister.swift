@@ -16,8 +16,8 @@ import BMSPush
 let myBMSClient = BMSClient.sharedInstance
 let push =  BMSPushClient.sharedInstance
 let cloudRegion = BMSClient.Region.usSouth
-let pushAppGUID = "27ee87ce-ed4c-4167-XXXX-XXXXXXX"
-let pushClientSecret = "813a430f-XXXXX-XXXXXX-b8e0-XXXXXXXXX"
+let pushAppGUID = "push service appguid"
+let pushClientSecret = "push service client secret"
 let userId = "ananth"
 let customeDeviceId = "12345"
 let pushVariables = ["username":"ananth","accountNumber":"3564758697057869"]
